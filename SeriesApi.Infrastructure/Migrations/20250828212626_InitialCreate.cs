@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -15,8 +15,7 @@ namespace SeriesApi.Infrastructure.Migrations
                 name: "Series",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -28,10 +27,9 @@ namespace SeriesApi.Infrastructure.Migrations
                 name: "Seasons",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Number = table.Column<int>(type: "integer", nullable: false),
-                    SeriesId = table.Column<int>(type: "integer", nullable: false)
+                    SeriesId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,11 +46,10 @@ namespace SeriesApi.Infrastructure.Migrations
                 name: "Episodes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Number = table.Column<int>(type: "integer", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
-                    SeasonId = table.Column<int>(type: "integer", nullable: false)
+                    SeasonId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {

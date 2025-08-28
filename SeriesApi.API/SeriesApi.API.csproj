@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SeriesApi.Domain\SeriesApi.Domain.csproj" />
+    <ProjectReference Include="..\SeriesApi.Shared\SeriesApi.Shared.csproj" />
     <ProjectReference Include="..\SeriesApi.Application\SeriesApi.Application.csproj" />
     <ProjectReference Include="..\SeriesApi.Infrastructure\SeriesApi.Infrastructure.csproj" />
   </ItemGroup>
