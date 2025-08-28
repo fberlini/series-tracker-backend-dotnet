@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17.6
+    container_name: seriesapi_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: seriesuser
+      POSTGRES_PASSWORD: seriespass
+      POSTGRES_DB: seriesdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.docker/postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
