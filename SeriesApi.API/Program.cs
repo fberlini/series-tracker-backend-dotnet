@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SeriesApi.Application.Interfaces;
+using SeriesApi.Application.Services;
 using SeriesApi.Infrastructure.Data;
 using SeriesApi.Infrastructure.Repositories;
 
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<ISeriesRepository, SeriesRepository>();
+builder.Services.AddScoped<ISeriesService, SeriesService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
