@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SeriesApi.Application.Interfaces;
 using SeriesApi.Domain.Entities;
-using SeriesApi.Shared.DTOs;
+using SeriesApi.API.DTOs;
 
 namespace SeriesApi.API.Controllers;
 

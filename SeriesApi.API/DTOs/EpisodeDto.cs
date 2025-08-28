@@ -1,4 +1,4 @@
-namespace SeriesApi.Shared.DTOs
+namespace SeriesApi.API.DTOs
 {
     public class EpisodeDto
     {

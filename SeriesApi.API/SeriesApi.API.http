@@ -1,6 +1,0 @@
-@SeriesApiAPI_HostAddress = http://localhost:5204
-
-GET {{SeriesApiAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
