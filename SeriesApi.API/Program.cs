@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using SeriesApi.Application.Interfaces;
+using SeriesApi.Application.Interfaces.Repositories;
+using SeriesApi.Application.Interfaces.Services;
 using SeriesApi.Application.Services;
 using SeriesApi.Infrastructure.Data;
 using SeriesApi.Infrastructure.Repositories;
@@ -7,8 +8,7 @@ using SeriesApi.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddScoped<ISeriesRepository, SeriesRepository>();
