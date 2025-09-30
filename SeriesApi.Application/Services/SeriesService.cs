@@ -4,10 +4,8 @@ using SeriesApi.Domain.Entities;
 
 namespace SeriesApi.Application.Services;
 
-public class SeriesService(ISeriesRepository repository) : ISeriesService
+public class SeriesService(ISeriesRepository _repository) : ISeriesService
 {
-    private readonly ISeriesRepository _repository = repository;
-
     public async Task<IEnumerable<Series>> GetAllAsync() =>
         await _repository.GetAllAsync();
 
@@ -33,10 +31,7 @@ public class SeriesService(ISeriesRepository repository) : ISeriesService
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var series = await _repository.GetByIdAsync(id);
-        if (series == null) return false;
-
-        _repository.Delete(series);
+        await _repository.Delete(id);
         await _repository.SaveChangesAsync();
         return true;
     }

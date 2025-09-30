@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using SeriesApi.Application.Interfaces;
+using SeriesApi.Application.Interfaces.Services;
 using SeriesApi.Domain.Entities;
 using SeriesApi.API.DTOs;
 
@@ -7,10 +7,8 @@ namespace SeriesApi.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class SeriesController(ISeriesService service) : ControllerBase
+public class SeriesController(ISeriesService _service) : ControllerBase
 {
-    private readonly ISeriesService _service = service;
-
     [HttpGet]
     public async Task<ActionResult<List<SeriesDto>>> GetAll()
     {
