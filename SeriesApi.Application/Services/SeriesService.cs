@@ -1,4 +1,5 @@
-using SeriesApi.Application.Interfaces;
+using SeriesApi.Application.Interfaces.Repositories;
+using SeriesApi.Application.Interfaces.Services;
 using SeriesApi.Domain.Entities;
 
 namespace SeriesApi.Application.Services;

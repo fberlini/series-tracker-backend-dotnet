@@ -1,6 +1,6 @@
 using SeriesApi.Domain.Entities;
 
-namespace SeriesApi.Application.Interfaces;
+namespace SeriesApi.Application.Interfaces.Services;
 
 public interface ISeriesService
 {

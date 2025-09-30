@@ -1,19 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using SeriesApi.Application.Interfaces;
+using SeriesApi.Application.Interfaces.Repositories;
 using SeriesApi.Domain.Entities;
 using SeriesApi.Infrastructure.Data;
 
 namespace SeriesApi.Infrastructure.Repositories;
 
-public class SeriesRepository : ISeriesRepository
+public class SeriesRepository(ApplicationDbContext _context) : ISeriesRepository
 {
-    private readonly ApplicationDbContext _context;
-
-    public SeriesRepository(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task<IEnumerable<Series>> GetAllAsync()
     {
         return await _context.Series
@@ -35,8 +28,15 @@ public class SeriesRepository : ISeriesRepository
         await _context.Series.AddAsync(series);
     }
 
-    public void Delete(Series series)
+    public async Task Delete(Guid id)
     {
+        var series = await GetByIdAsync(id);
+
+        if (series == null)
+        {
+            return;
+        }
+
         _context.Series.Remove(series);
     }
 
